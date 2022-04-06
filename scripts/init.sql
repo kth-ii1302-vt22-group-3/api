@@ -2,7 +2,7 @@ SET client_encoding = 'UTF8';
 
 CREATE TABLE public.temperature (
     id integer not null,
-    timestamp notnull timestamp(0),
+    timestamp timestamp(0) not null,
     value double precision not null,
     unit varchar(30) not null
 );
