@@ -29,4 +29,12 @@ export const temperatureRoutes = (app) => {
       unit: "Celsius",
     });
   });
+  app.post("/temperatures", (req, res) => {
+    const { value, unit } = req.body;
+    const id = getTemperatures().length + 1;
+    const timestamp = new Date().toISOString();
+    const temperature = { id, timestamp, value, unit };
+    getTemperatures().push(temperature);
+    res.json(temperature);
+  });
 };
