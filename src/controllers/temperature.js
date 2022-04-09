@@ -19,7 +19,7 @@ const getTemperatures = () => [
   },
 ];
 
-export const temperatureRoutes = (app) => {
+const temperatureRoutes = (app) => {
   app.get("/temperatures", (req, res) => res.json(getTemperatures()));
   app.get("/temperatures/current", (req, res) => {
     res.json({
@@ -38,3 +38,5 @@ export const temperatureRoutes = (app) => {
     res.json(temperature);
   });
 };
+
+module.exports = temperatureRoutes;

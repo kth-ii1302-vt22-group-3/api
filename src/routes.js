@@ -1,7 +1,9 @@
-import { temperatureRoutes } from "./controllers/temperature.js";
-import { defaultRoutes } from "./controllers/default.js";
+const temperatureRoutes = require("./controllers/temperature.js");
+const defaultRoutes = require("./controllers/default.js");
 
-export const routes = (app) => {
+const routes = (app) => {
     defaultRoutes(app);
     temperatureRoutes(app);
 };
+
+module.exports = routes;
