@@ -1,5 +1,5 @@
 const { response } = require("express");
-const { findAll, findLatest, insertOne } = require("../repository/index");
+const { findAll, findLatest, insertOne } = require("../repository/dbHandler");
 
 const temperatureRoutes = (app) => {
   app.get("/temperatures", (req, res) => {
