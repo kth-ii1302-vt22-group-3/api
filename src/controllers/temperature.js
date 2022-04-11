@@ -1,40 +1,26 @@
-const getTemperatures = () => [
-  {
-    id: 1,
-    timestamp: "2022-04-06 09:35:00",
-    value: 21.1,
-    unit: "Celsius",
-  },
-  {
-    id: 2,
-    timestamp: "2022-04-06 09:36:00",
-    value: 22.1,
-    unit: "Celsius",
-  },
-  {
-    id: 3,
-    timestamp: "2022-04-06 09:38:00",
-    value: 23.1,
-    unit: "Celsius",
-  },
-];
+const { response } = require("express");
+const { findAll, findLatest, insertOne } = require("../repository/dbHandler");
 
-export const temperatureRoutes = (app) => {
-  app.get("/temperatures", (req, res) => res.json(getTemperatures()));
-  app.get("/temperatures/current", (req, res) => {
-    res.json({
-      id: 3,
-      timestamp: "2022-04-06 09:38:00",
-      value: 23.1,
-      unit: "Celsius",
+const temperatureRoutes = (app) => {
+  app.get("/temperatures", (req, res) => {
+    findAll().then((result) => {
+      res.json(result);
     });
   });
+
+ app.get("/temperatures/current", (req, res) => {
+    findLatest().then((result) => {
+      res.json(result);
+      });
+  });
+
   app.post("/temperatures", (req, res) => {
-    const { value, unit } = req.body;
-    const id = getTemperatures().length + 1;
-    const timestamp = new Date().toISOString();
-    const temperature = { id, timestamp, value, unit };
-    getTemperatures().push(temperature);
-    res.json(temperature);
+    const { value } = req.body;
+    insertOne(value, "celsius").then((result) => {
+      res.status(200).json(result);
+    });
   });
 };
+
+
+module.exports = temperatureRoutes;

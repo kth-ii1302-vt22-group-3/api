@@ -2,7 +2,7 @@ SET client_encoding = 'UTF8';
 
 CREATE TABLE public.temperature (
     id integer not null,
-    timestamp timestamp(0) not null,
+    timestamp timestamp(0) not null DEFAULT (CURRENT_TIMESTAMP AT TIME ZONE 'UTC-2'),
     value double precision not null,
     unit varchar(30) not null
 );
