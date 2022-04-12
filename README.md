@@ -1,9 +1,11 @@
 # Cloudometer API
 
+## Web Structure Description
+
 This api-service is used by the Cloudometer website for displaying temperatures.
 The repository currently have to distintc routes which one is for checking the health of the api and other one is for sending temperatures to the requester.
 
-## Default routes (Health checker)
+### Default routes (Health checker)
 
 ```apib
 GET /
@@ -35,9 +37,7 @@ GET /message
 ```
 Returns an object with `{ message: "Hello World!" }`.
 
-## Temperature routes
-
-
+### Temperature routes
 
 ```apib
 GET /temperatures
