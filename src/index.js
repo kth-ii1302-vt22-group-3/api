@@ -11,7 +11,8 @@ const port = process.env.PORT || 3000;
 const allowedOrigins = [
     "http://localhost:3000",
     "http://localhost:3001",
-    "https://ii1302-group3-web.herokuapp.com"
+    "https://ii1302-group3-web.herokuapp.com",
+    "https://ii1302-group3-api.herokuapp.com",
 ];
 
 app.use(cors({
