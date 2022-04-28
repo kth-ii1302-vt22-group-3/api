@@ -8,10 +8,11 @@ sequelize = new Sequelize(URI, {
   logging: false,
   dialect: "postgres",
   dialectOptions: {
-    ssl: {
+    /*ssl: {
       require: true,
       rejectUnauthorized: false,
-    },
+    },*/
+    ssl: process.env.DATABASE_URL ? { require: true, rejectUnauthorized: false } : false,
   },
 });
 
