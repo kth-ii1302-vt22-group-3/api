@@ -3,8 +3,8 @@ const { findAll, findLatest, insertOne } = require("../repository/dbHandler");
 
 const temperatureRoutes = (app) => {
   app.get("/temperatures", (req, res) => {
-    res.set("Access-Control-Allow-Origin", "*");
-    res.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     findAll()
       .then((result) => {
         res.json(result);
@@ -15,8 +15,8 @@ const temperatureRoutes = (app) => {
   });
 
   app.get("/temperatures/current", (req, res) => {
-    res.set("Access-Control-Allow-Origin", "*");
-    res.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     findLatest()
       .then((result) => {
         res.json(result);
@@ -27,8 +27,8 @@ const temperatureRoutes = (app) => {
   });
 
   app.post("/temperatures", (req, res) => {
-    res.set("Access-Control-Allow-Origin", "*");
-    res.set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     const { value } = req.body;
     insertOne(value, "celsius")
       .then((result) => {
