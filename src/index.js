@@ -17,7 +17,9 @@ const allowedOrigins = [
 ];
 
 app.use(cors({
-    origin: allowedOrigins/*function (origin, callback) {
+    origin: allowedOrigins,
+    optionsSuccessStatus: 200
+    /*function (origin, callback) {
         if (allowedOrigins.indexOf(origin) !== -1) {
             callback(null, true);
         } else {
