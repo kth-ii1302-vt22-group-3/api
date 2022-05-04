@@ -11,19 +11,20 @@ const port = process.env.PORT || 3000;
 const allowedOrigins = [
     "http://localhost:3000",
     "http://localhost:3001",
-    "https://ii1302-group3-web.herokuapp.com",
-    "https://ii1302-group3-api.herokuapp.com",
+    "http://localhost:3003",
+    "https://cloudometer-api.azurewebsites.net",
+    "https://cloudometer-web.azurewebsites.net",
 ];
 
 app.use(cors({
-    origin: function (origin, callback) {
+    origin: allowedOrigins/*function (origin, callback) {
         if (allowedOrigins.indexOf(origin) !== -1) {
             callback(null, true);
         } else {
             callback(new Error("Not allowed by CORS"));
-        }
+        }*/
     }
-}));
+));
 
 
 routes(app);
