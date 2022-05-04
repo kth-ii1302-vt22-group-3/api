@@ -12,8 +12,8 @@ const allowedOrigins = [
     "http://localhost:3000",
     "http://localhost:3001",
     "http://localhost:3003",
-    "https://cloudometer-api.azurewebsites.net",
-    "https://cloudometer-web.azurewebsites.net",
+    "https://cloudometer-api.herokuapp.com/",
+    "https://cloudometer-web.herokuapp.com/",
 ];
 
 app.use(cors({
