@@ -22,8 +22,8 @@ const temperatureRoutes = (app) => {
       });
   });
 
-  app.post("/temperatures", (req, res) => {
-    const { value } = req.body;
+  app.get("/temperatures/new", (req, res) => {
+    const value = req.query.value;
     insertOne(value, "celsius")
       .then((result) => {
         res.status(200).json(result);
