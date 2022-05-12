@@ -25,11 +25,11 @@ const temperatureRoutes = (app) => {
         res.status(500).json({ error: err.message });
       });
   });
-
-  app.post("/temperatures", (req, res) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    const { value } = req.body;
+  
+  app.get("/temperatures/new", (req, res) => {
+    //res.header("Access-Control-Allow-Origin", "*");
+    //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    const value = req.query.value;
     insertOne(value, "celsius")
       .then((result) => {
         res.status(200).json(result);
